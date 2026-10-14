@@ -274,6 +274,26 @@
   .t-lds .d { right: 30px; height: 110px !important; transform: scaleX(-1); }
   .pill.coming { background: rgba(124, 77, 255, .15); color: #8b5cf6; }
 
+  /* Demnächst im Vokabeltrainer */
+  .next {
+    margin-top: 22px; border-radius: 28px; padding: 36px; border: 1px dashed color-mix(in srgb, var(--accent) 55%, var(--line));
+    background: linear-gradient(135deg, rgba(240, 127, 44, .08), transparent 60%), var(--card);
+  }
+  .next .top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .next h3 { margin: 0; font-size: 1.6rem; letter-spacing: -.02em; }
+  .next .plan { font-size: .78rem; font-weight: 800; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: .08em; background: rgba(240, 127, 44, .15); color: var(--accent); }
+  .next > p { margin: 0 0 22px; color: var(--muted); max-width: 60ch; }
+  .next .grid { display: grid; gap: 18px 24px; grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px) { .next .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .next .grid { grid-template-columns: 1fr; } }
+  .next .item { display: flex; gap: 12px; align-items: flex-start; }
+  .next .item span { flex: 0 0 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: var(--bg2); font-size: 1.2rem; }
+  .next .item b { display: block; }
+  .next .item small { color: var(--muted); font-size: .92rem; line-height: 1.45; display: block; }
+  .next .also { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); }
+  .next .also b { color: var(--text); }
+  @media (max-width: 520px) { .next { padding: 26px 20px; } }
+
   footer { margin-top: 110px; padding: 40px 0 50px; border-top: 1px solid var(--line); color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
@@ -371,7 +391,7 @@
         <div class="thumb">🌍</div>
         <div class="body">
           <h3>Als Nächstes</h3>
-          <p>Weitere Sprachen für den Vokabeltrainer. Die App ist schon darauf vorbereitet.</p>
+          <p>Ein Erwachsenen-Modus für den Vokabeltrainer und später weitere Sprachen.</p>
           <div class="meta"><span class="pill">Geplant</span></div>
         </div>
       </div>
@@ -427,6 +447,20 @@
           <li>Alle Daten bleiben auf dem Gerät</li>
         </ul>
       </div>
+    </div>
+
+    <div class="next reveal">
+      <div class="top"><h3>🎓 Demnächst: Erwachsenen-Modus</h3><span class="plan">Geplant</span></div>
+      <p>Englisch lernen ist nicht nur Schulsache. Bald gibt es einen eigenen Modus für Erwachsene, mit dem gleichen Ziel: Wörter wirklich können statt nur wiedererkennen.</p>
+      <div class="grid">
+        <div class="item"><span>📈</span><div><b>Nach Sprachniveau</b><small>A1 bis B2 statt Schulklasse</small></div></div>
+        <div class="item"><span>🧭</span><div><b>Einstufungstest</b><small>Kurzer Test zeigt, wo man startet</small></div></div>
+        <div class="item"><span>💼</span><div><b>Themen fürs echte Leben</b><small>Arbeit, Reisen, Arzt, Behörden, Smalltalk, E-Mails</small></div></div>
+        <div class="item"><span>💬</span><div><b>Redewendungen</b><small>Satzbausteine wie „Could you…“ und „I'd like to…“</small></div></div>
+        <div class="item"><span>🔊</span><div><b>Mit Sprachausgabe</b><small>Alles zum Anhören, Wort und Satz</small></div></div>
+        <div class="item"><span>📊</span><div><b>Schlicht und erwachsen</b><small>Ruhiges Design und eine eigene Statistik</small></div></div>
+      </div>
+      <p class="also"><b>Auch für Kinder neu geplant:</b> die Übungsart „Sätze“, in der ganze Sätze geübt werden statt einzelner Wörter.</p>
     </div>
   </section>
 
