@@ -173,6 +173,52 @@
   .pcard h3 { margin: 4px 0 0; font-size: 1.3rem; }
   .pcard p { margin: 0; color: var(--muted); }
 
+  /* Projektübersicht */
+  .ov { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: 44px; }
+  .ocard { display: flex; flex-direction: column; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--card); text-decoration: none; transition: transform .2s, box-shadow .2s; }
+  .ocard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .ocard .thumb { height: 190px; display: grid; place-items: center; position: relative; overflow: hidden; }
+  .ocard .thumb img.cover { width: 100%; height: 100%; object-fit: cover; }
+  .ocard .thumb img.icon { width: 96px; height: 96px; border-radius: 24px; box-shadow: 0 14px 30px -10px rgba(0,0,0,.5); }
+  .t-vt { background: linear-gradient(135deg, #ffcf8a, #f07f2c 60%, #f25f8a); }
+  .t-db { background: radial-gradient(circle at 70% 30%, #2b8f87, #182226 70%); }
+  .ocard .body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .ocard h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.01em; }
+  .ocard p { margin: 0; color: var(--muted); }
+  .ocard .meta { margin-top: auto; padding-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .ocard.soon { border-style: dashed; background: transparent; }
+  .ocard.soon .thumb { background: var(--bg2); font-size: 3.4rem; }
+  .pill { font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--bg2); color: var(--muted); }
+  .pill.live { background: rgba(76, 196, 136, .18); color: var(--green); }
+
+  /* Browser-Erweiterungen */
+  .ext { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+  .ext.flip { grid-template-columns: 1.15fr 1fr; }
+  .ext.flip > :first-child { order: 2; }
+  @media (max-width: 900px) { .ext, .ext.flip { grid-template-columns: 1fr; gap: 30px; } .ext.flip > :first-child { order: 0; } }
+  .ext .head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+  .ext .head img { width: 64px; height: 64px; border-radius: 16px; }
+  .ext .head h2 { margin: 0; }
+  .checks { list-style: none; padding: 0; margin: 22px 0 28px; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; }
+  .checks li::before { content: "✓"; font-weight: 900; color: var(--accent); }
+  .checks.teal li::before { color: #2bb5a8; }
+  .browser { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .browser img { display: block; width: 100%; height: auto; }
+  .btn.ff { background: #ff7139; color: #1d0c03; }
+  .btn.cr { background: var(--card); color: var(--text); border: 1px solid var(--line); }
+  .dial {
+    border-radius: 26px; padding: 30px; background: radial-gradient(circle at 80% 0%, #2b8f87, #182226 65%);
+    box-shadow: var(--shadow); display: grid; gap: 18px;
+  }
+  .dial .tabs { display: flex; gap: 8px; }
+  .dial .tabs span { padding: 5px 14px; border-radius: 999px; background: rgba(255,255,255,.08); color: #b9c9cb; font-size: .85rem; font-weight: 600; }
+  .dial .tabs span.on { background: #3fd0c2; color: #0d2422; }
+  .dial .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .dial .tiles i { aspect-ratio: 4 / 3; border-radius: 14px; background: rgba(255,255,255,.08); display: grid; place-items: center; font-style: normal; font-size: 1.5rem; transition: transform .2s, background .2s; }
+  .dial .tiles i:hover { transform: translateY(-3px); background: rgba(255,255,255,.16); }
+  @media (max-width: 420px) { .dial { padding: 20px; } .dial .tiles { grid-template-columns: repeat(3, 1fr); } .dial .tiles i:nth-child(n+10) { display: none; } }
+
   footer { margin-top: 110px; padding: 40px 0 50px; border-top: 1px solid var(--line); color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
@@ -193,9 +239,10 @@
   <div class="wrap">
     <a class="logo" href="#top">Mike<span class="grad">.</span></a>
     <ul>
-      <li><a href="#vokabeltrainer">Vokabeltrainer</a></li>
-      <li class="opt"><a href="#ausprobieren">Ausprobieren</a></li>
       <li><a href="#projekte">Projekte</a></li>
+      <li><a href="#vokabeltrainer">Vokabeltrainer</a></li>
+      <li class="opt"><a href="#justjpg">JustJPG</a></li>
+      <li class="opt"><a href="#dialboard">Dialboard</a></li>
     </ul>
   </div>
 </nav>
@@ -205,24 +252,67 @@
   <div class="wrap">
     <span class="eyebrow">👋 Hallo, ich bin Mike</span>
     <h1>Ich baue Apps, die <span class="grad">wirklich helfen.</span></h1>
-    <p class="lead">Hier zeige ich meine Projekte. Das erste ist ein Vokabeltrainer, mit dem Kinder gern Englisch üben und Eltern sehen, wie es läuft.</p>
+    <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und zwei Browser-Erweiterungen für Firefox und Chrome. Alle laufen lokal, ohne Werbung und ohne Tracking.</p>
     <div class="btns">
-      <a class="btn primary" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen →</a>
-      <a class="btn ghost" href="#vokabeltrainer">Mehr erfahren</a>
+      <a class="btn primary" href="#projekte">Projekte ansehen ↓</a>
+      <a class="btn ghost" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen</a>
     </div>
   </div>
 </header>
 
 <div class="stats wrap reveal">
   <div class="grid">
-    <div class="stat"><b data-count="4231">4.231</b><span>Vokabeln</span></div>
-    <div class="stat"><b data-count="373">373</b><span>Themen</span></div>
-    <div class="stat"><b data-count="12">12</b><span>Schulstufen</span></div>
-    <div class="stat"><b>100 %</b><span>offline</span></div>
+    <div class="stat"><b data-count="3">3</b><span>Projekte</span></div>
+    <div class="stat"><b data-count="3">3</b><span>Plattformen</span></div>
+    <div class="stat"><b>0</b><span>Werbung &amp; Tracking</span></div>
+    <div class="stat"><b>100 %</b><span>lokal</span></div>
   </div>
 </div>
 
 <main class="wrap">
+
+  <section id="projekte">
+    <div class="reveal">
+      <p class="kicker">Projekte</p>
+      <h2>Was ich gebaut habe</h2>
+      <p class="sub">Drei Werkzeuge für den Alltag, jedes mit eigenem Schwerpunkt.</p>
+    </div>
+    <div class="ov">
+      <!-- Neues Projekt: einen <a class="ocard">-Block kopieren und anpassen. -->
+      <a class="ocard reveal" href="#vokabeltrainer">
+        <div class="thumb t-vt"><img class="icon" src="img/vokabeltrainer-icon.png" alt=""></div>
+        <div class="body">
+          <h3>Vokabeltrainer</h3>
+          <p>Englisch für die 1. bis 12. Schulstufe nach österreichischem Lehrplan, mit Elternbereich.</p>
+          <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Handy &amp; Tablet</span></div>
+        </div>
+      </a>
+      <a class="ocard reveal" href="#justjpg">
+        <div class="thumb"><img class="cover" src="img/justjpg-kachel.webp" alt="JustJPG" loading="lazy"></div>
+        <div class="body">
+          <h3>JustJPG</h3>
+          <p>Jedes Bild mit einem Klick als JPG speichern, auch WEBP, AVIF und HEIC.</p>
+          <div class="meta"><span class="pill live">Im Store</span><span class="pill">Chrome</span><span class="pill">Firefox</span></div>
+        </div>
+      </a>
+      <a class="ocard reveal" href="#dialboard">
+        <div class="thumb t-db"><img class="icon" src="img/dialboard-icon.png" alt="" loading="lazy"></div>
+        <div class="body">
+          <h3>Dialboard</h3>
+          <p>Neuer-Tab-Seite mit Speed Dials in Gruppen und voller Lesezeichen-Verwaltung.</p>
+          <div class="meta"><span class="pill live">Im Store</span><span class="pill">Firefox</span></div>
+        </div>
+      </a>
+      <div class="ocard soon reveal">
+        <div class="thumb">🌍</div>
+        <div class="body">
+          <h3>Als Nächstes</h3>
+          <p>Weitere Sprachen für den Vokabeltrainer. Die App ist schon darauf vorbereitet.</p>
+          <div class="meta"><span class="pill">Geplant</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="vokabeltrainer">
     <div class="feature">
@@ -231,8 +321,8 @@
         <h2>Vokabeltrainer für Österreichs Schulen</h2>
         <p class="sub">Englisch von der 1. Klasse Volksschule bis zur Matura. Die Wörter folgen dem österreichischen Lehrplan und dem GERS, sortiert nach Schulstufe und Thema.</p>
         <div class="badge-row">
-          <span class="badge">Volksschule</span><span class="badge">Unterstufe</span><span class="badge">Oberstufe</span>
-          <span class="badge">Ohne Konto</span><span class="badge">Ohne Werbung</span>
+          <span class="badge">4.231 Vokabeln</span><span class="badge">373 Themen</span><span class="badge">12 Schulstufen</span>
+          <span class="badge">Ohne Konto</span><span class="badge">Offline</span>
         </div>
         <div class="btns">
           <a class="btn dark" href="https://expedox.github.io/vokabeltrainer/">Jetzt starten</a>
@@ -309,23 +399,49 @@
     <div class="qr"><img src="img/qr.svg" alt="QR-Code zum Vokabeltrainer">Scannen zum Öffnen</div>
   </div>
 
-  <section id="projekte">
-    <div class="reveal">
-      <p class="kicker">Projekte</p>
-      <h2>Alle Projekte</h2>
-      <p class="sub">Was fertig ist und was als Nächstes kommt.</p>
+  <section id="justjpg">
+    <div class="ext">
+      <div class="reveal">
+        <p class="kicker">Browser-Erweiterung</p>
+        <div class="head"><img src="img/justjpg-icon.png" alt=""><h2>JustJPG</h2></div>
+        <p class="sub">Jedes Bild. Ein Klick. JPG. Auch Bilder, die sich normal nicht speichern lassen oder nur als WEBP, AVIF oder HEIC kommen.</p>
+        <ul class="checks">
+          <li>Rechtsklick, Hover-Button oder Tastenkürzel</li>
+          <li>Galerie mit allen Bildern der Seite zum gesammelten Speichern</li>
+          <li>Findet Bilder hinter Overlays, in Hintergründen und Videos</li>
+          <li>Qualität, Hintergrundfarbe, Ordner und Dateinamen einstellbar</li>
+          <li>Wandelt alles lokal um: kein Upload, kein Konto, kein Tracking</li>
+        </ul>
+        <div class="btns">
+          <a class="btn cr" href="https://chromewebstore.google.com/detail/justjpg/jdlpkegjpkdjknlahookpfckmoobeiai">Für Chrome</a>
+          <a class="btn ff" href="https://addons.mozilla.org/de/firefox/addon/justjpg/">Für Firefox</a>
+        </div>
+      </div>
+      <div class="browser reveal"><img src="img/justjpg-galerie.webp" alt="JustJPG-Galerie mit allen Bildern einer Seite" loading="lazy" width="960" height="600"></div>
     </div>
-    <div class="more">
-      <!-- Neues Projekt: einen <a class="pcard">-Block kopieren und anpassen. -->
-      <a class="pcard reveal" href="https://expedox.github.io/vokabeltrainer/">
-        <span class="tag live">Online</span>
-        <h3>📚 Vokabeltrainer</h3>
-        <p>Englisch für die 1. bis 12. Schulstufe, offline und ohne Konto.</p>
-      </a>
-      <div class="pcard soon reveal">
-        <span class="tag plan">Geplant</span>
-        <h3>🌍 Weitere Sprachen</h3>
-        <p>Der Vokabeltrainer ist schon darauf vorbereitet, später mehr Sprachen anzubieten.</p>
+  </section>
+
+  <section id="dialboard">
+    <div class="ext flip">
+      <div class="reveal">
+        <p class="kicker">Firefox-Add-on</p>
+        <div class="head"><img src="img/dialboard-icon.png" alt=""><h2>Dialboard</h2></div>
+        <p class="sub">Deine Neuer-Tab-Seite mit Speed Dials, gruppiert in Tabs, dazu eine vollwertige Lesezeichen-Verwaltung.</p>
+        <ul class="checks teal">
+          <li>Speed Dials in Gruppen, per Drag &amp; Drop sortierbar</li>
+          <li>Pro Kachel ein Symbol, ein eigenes Bild oder ein Screenshot</li>
+          <li>Lesezeichen mit Ordnerbaum, Sortieren und Aufräumen von Duplikaten</li>
+          <li>Meistbesuchte Seiten der letzten 7, 30 oder 90 Tage</li>
+          <li>Helles und dunkles Design, eigenes Hintergrundbild</li>
+          <li>Daten bleiben im Browser, Sync auf Wunsch über Firefox Sync oder Google Drive</li>
+        </ul>
+        <div class="btns">
+          <a class="btn ff" href="https://addons.mozilla.org/de/firefox/addon/dialboard-speed-dial-bookmarks/">Für Firefox</a>
+        </div>
+      </div>
+      <div class="dial reveal" aria-hidden="true">
+        <div class="tabs"><span class="on">Start</span><span>Arbeit</span><span>Freizeit</span></div>
+        <div class="tiles"><i>📰</i><i>✉️</i><i>📅</i><i>🎵</i><i>🛒</i><i>🗺️</i><i>📺</i><i>☁️</i><i>💬</i><i>📷</i><i>🎮</i><i>➕</i></div>
       </div>
     </div>
   </section>
