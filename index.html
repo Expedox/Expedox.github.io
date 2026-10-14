@@ -276,7 +276,7 @@
 
   /* Demnächst im Vokabeltrainer */
   .next {
-    margin-top: 22px; border-radius: 28px; padding: 36px; border: 1px dashed color-mix(in srgb, var(--accent) 55%, var(--line));
+    margin-top: 22px; border-radius: 28px; padding: 36px; border: 1px solid color-mix(in srgb, var(--green) 45%, var(--line));
     background: linear-gradient(135deg, rgba(240, 127, 44, .08), transparent 60%), var(--card);
   }
   .next .top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 10px; }
@@ -292,7 +292,13 @@
   .next .item small { color: var(--muted); font-size: .92rem; line-height: 1.45; display: block; }
   .next .also { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); }
   .next .also b { color: var(--text); }
-  @media (max-width: 520px) { .next { padding: 26px 20px; } }
+  .next .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 28px -36px 0; padding: 6px 36px 10px; scrollbar-width: thin; }
+  .next .shots figure { flex: 0 0 auto; scroll-snap-align: start; text-align: center; }
+  .next .shots .phone { width: 170px; border-radius: 28px; padding: 7px; }
+  .next .shots .phone img { border-radius: 22px; }
+  .next .shots figcaption { margin-top: 10px; font-weight: 700; font-size: .92rem; }
+  .next .plan.new { background: rgba(76, 196, 136, .18); color: var(--green); }
+  @media (max-width: 520px) { .next { padding: 26px 20px; } .next .shots { margin: 24px -20px 0; padding: 6px 20px 10px; } }
 
   footer { margin-top: 110px; padding: 40px 0 50px; border-top: 1px solid var(--line); color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -328,7 +334,7 @@
   <div class="wrap">
     <span class="eyebrow">👋 Hallo, ich bin Mike</span>
     <h1>Ich baue Apps, die <span class="grad">wirklich helfen.</span></h1>
-    <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und zwei Browser-Erweiterungen für Firefox und Chrome. Und bald mein erstes Spiel auf Steam.</p>
+    <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und Erwachsene, zwei Browser-Erweiterungen für Firefox und Chrome. Und bald mein erstes Spiel auf Steam.</p>
     <div class="btns">
       <a class="btn primary" href="#projekte">Projekte ansehen ↓</a>
       <a class="btn ghost" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen</a>
@@ -359,7 +365,7 @@
         <div class="thumb t-vt"><img class="icon" src="img/vokabeltrainer-icon.png" alt=""></div>
         <div class="body">
           <h3>Vokabeltrainer</h3>
-          <p>Englisch für die 1. bis 12. Schulstufe nach österreichischem Lehrplan, mit Elternbereich.</p>
+          <p>Englisch für die 1. bis 12. Schulstufe mit Elternbereich, und neu für Erwachsene von A1 bis B2.</p>
           <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Handy &amp; Tablet</span></div>
         </div>
       </a>
@@ -391,7 +397,7 @@
         <div class="thumb">🌍</div>
         <div class="body">
           <h3>Als Nächstes</h3>
-          <p>Ein Erwachsenen-Modus für den Vokabeltrainer und später weitere Sprachen.</p>
+          <p>Weitere Sprachen für den Vokabeltrainer. Die App ist schon darauf vorbereitet.</p>
           <div class="meta"><span class="pill">Geplant</span></div>
         </div>
       </div>
@@ -403,9 +409,9 @@
       <div class="reveal">
         <p class="kicker">Vorzeigeprojekt</p>
         <h2>Vokabeltrainer für Österreichs Schulen</h2>
-        <p class="sub">Englisch von der 1. Klasse Volksschule bis zur Matura. Die Wörter folgen dem österreichischen Lehrplan und dem GERS, sortiert nach Schulstufe und Thema.</p>
+        <p class="sub">Englisch von der 1. Klasse Volksschule bis zur Matura. Die Wörter folgen dem österreichischen Lehrplan und dem GERS, sortiert nach Schulstufe und Thema. Neu: ein eigener Modus für Erwachsene.</p>
         <div class="badge-row">
-          <span class="badge">4.231 Vokabeln</span><span class="badge">373 Themen</span><span class="badge">12 Schulstufen</span>
+          <span class="badge">6.454 Vokabeln</span><span class="badge">3.976 Übungssätze</span><span class="badge">12 Schulstufen</span><span class="badge">A1 bis B2</span>
           <span class="badge">Ohne Konto</span><span class="badge">Offline</span>
         </div>
         <div class="btns">
@@ -420,7 +426,7 @@
     </div>
 
     <div class="cards">
-      <div class="fcard reveal"><div class="ico">🃏</div><h3>Vier Übungsarten</h3><p>Karteikarten, Auswählen, Schreiben und Buchstabieren. Jedes Kind findet seinen Weg.</p></div>
+      <div class="fcard reveal"><div class="ico">🃏</div><h3>Sechs Übungsarten</h3><p>Karteikarten, Auswählen, Schreiben, Buchstabieren, Sätze und Hören. Jeder findet seinen Weg.</p></div>
       <div class="fcard reveal"><div class="ico">🔁</div><h3>Wiederholt, was hakt</h3><p>Falsche Wörter kommen öfter dran, sichere seltener. So bleibt mehr hängen.</p></div>
       <div class="fcard reveal"><div class="ico">🎯</div><h3>Fit für die Schularbeit</h3><p>Prüfung eintragen, Countdown sehen und jeden Tag eine passende Portion üben.</p></div>
       <div class="fcard reveal"><div class="ico">🔊</div><h3>Zum Anhören</h3><p>Wörter und Beispielsätze auf Englisch vorlesen lassen, so oft man will.</p></div>
@@ -450,17 +456,27 @@
     </div>
 
     <div class="next reveal">
-      <div class="top"><h3>🎓 Demnächst: Erwachsenen-Modus</h3><span class="plan">Geplant</span></div>
-      <p>Englisch lernen ist nicht nur Schulsache. Bald gibt es einen eigenen Modus für Erwachsene, mit dem gleichen Ziel: Wörter wirklich können statt nur wiedererkennen.</p>
+      <div class="top"><h3>🎓 Neu: Erwachsenen-Modus</h3><span class="plan new">Neu</span></div>
+      <p>Englisch lernen ist nicht nur Schulsache. Der Erwachsenen-Modus hat ein ruhiges Design und ein klares Ziel: Wörter und Sätze wirklich können statt nur wiedererkennen.</p>
       <div class="grid">
-        <div class="item"><span>📈</span><div><b>Nach Sprachniveau</b><small>A1 bis B2 statt Schulklasse</small></div></div>
-        <div class="item"><span>🧭</span><div><b>Einstufungstest</b><small>Kurzer Test zeigt, wo man startet</small></div></div>
-        <div class="item"><span>💼</span><div><b>Themen fürs echte Leben</b><small>Arbeit, Reisen, Arzt, Behörden, Smalltalk, E-Mails</small></div></div>
-        <div class="item"><span>💬</span><div><b>Redewendungen</b><small>Satzbausteine wie „Could you…“ und „I'd like to…“</small></div></div>
-        <div class="item"><span>🔊</span><div><b>Mit Sprachausgabe</b><small>Alles zum Anhören, Wort und Satz</small></div></div>
-        <div class="item"><span>📊</span><div><b>Schlicht und erwachsen</b><small>Ruhiges Design und eine eigene Statistik</small></div></div>
+        <div class="item"><span>📈</span><div><b>Nach Sprachniveau</b><small>A1 bis B2 statt Schulklasse, B2 entspricht UNIcert II</small></div></div>
+        <div class="item"><span>🧭</span><div><b>Einstufungstest</b><small>40 kurze Fragen, etwa 5 Minuten, dann weißt du, wo du startest</small></div></div>
+        <div class="item"><span>💼</span><div><b>Themen fürs echte Leben</b><small>Beruf, Reisen, Arzt, Wohnen, Einkaufen, Smalltalk, Notfälle</small></div></div>
+        <div class="item"><span>💬</span><div><b>Redewendungen</b><small>Satzbausteine zum Bitten, Beschweren, Diskutieren und Telefonieren</small></div></div>
+        <div class="item"><span>📐</span><div><b>Grammatik</b><small>40 Kapitel mit Erklärung, Beispielen und 800 Übungen</small></div></div>
+        <div class="item"><span>✈️</span><div><b>Situationen</b><small>58 Gespräche aus Urlaub und Alltag: anhören, dann selbst antworten</small></div></div>
+        <div class="item"><span>👂</span><div><b>Hören</b><small>Nur hören und die Bedeutung wählen, auch langsam</small></div></div>
+        <div class="item"><span>🎯</span><div><b>Streng prüfen</b><small>Auf Wunsch zählen Tippfehler, und Fehler müssen zweimal sitzen</small></div></div>
+        <div class="item"><span>📊</span><div><b>Eigene Statistik</b><small>Tagesziel in Minuten, Lernzeit und schwierige Wörter</small></div></div>
       </div>
-      <p class="also"><b>Auch für Kinder neu geplant:</b> die Übungsart „Sätze“, in der ganze Sätze geübt werden statt einzelner Wörter.</p>
+      <div class="shots">
+        <figure><div class="phone"><img src="img/erw-home.webp" alt="Startseite im Erwachsenen-Modus" loading="lazy"></div><figcaption>Start</figcaption></figure>
+        <figure><div class="phone"><img src="img/erw-test.webp" alt="Einstufungstest" loading="lazy"></div><figcaption>Einstufungstest</figcaption></figure>
+        <figure><div class="phone"><img src="img/erw-grammatik.webp" alt="Grammatik-Kapitel" loading="lazy"></div><figcaption>Grammatik</figcaption></figure>
+        <figure><div class="phone"><img src="img/erw-situation.webp" alt="Gespräch am Flughafen" loading="lazy"></div><figcaption>Situationen</figcaption></figure>
+        <figure><div class="phone"><img src="img/erw-saetze.webp" alt="Sätze üben" loading="lazy"></div><figcaption>Sätze</figcaption></figure>
+      </div>
+      <p class="also"><b>Auch für Kinder neu:</b> die Übungsarten „Sätze“ (den richtigen Satz finden, dann selbst bauen) und „Hören“.</p>
     </div>
   </section>
 
@@ -475,6 +491,8 @@
       <figure class="shot"><div class="phone"><img src="img/karten.webp" alt="Karteikarte" loading="lazy"></div><figcaption>Karteikarten<small>Antippen zum Umdrehen</small></figcaption></figure>
       <figure class="shot"><div class="phone"><img src="img/auswahl.webp" alt="Auswahlfrage" loading="lazy"></div><figcaption>Auswählen<small>Richtige Antwort antippen</small></figcaption></figure>
       <figure class="shot"><div class="phone"><img src="img/schreiben.webp" alt="Buchstabieren im Lückensatz" loading="lazy"></div><figcaption>Buchstabieren<small>Im echten Satz</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/saetze.webp" alt="Sätze üben" loading="lazy"></div><figcaption>Sätze<small>Neu: ganze Sätze</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/hoeren.webp" alt="Hören" loading="lazy"></div><figcaption>Hören<small>Neu: nur zuhören</small></figcaption></figure>
       <figure class="shot"><div class="phone"><img src="img/pruefung.webp" alt="Prüfungsvorbereitung" loading="lazy"></div><figcaption>Prüfung<small>Gezielt vorbereiten</small></figcaption></figure>
       <figure class="shot"><div class="phone"><img src="img/elternbereich.webp" alt="Elternbereich" loading="lazy"></div><figcaption>Elternbereich<small>Hinter der PIN</small></figcaption></figure>
       <figure class="shot"><div class="phone"><img src="img/eltern.webp" alt="Fortschritt eines Kindes" loading="lazy"></div><figcaption>Fortschritt<small>Pro Kind</small></figcaption></figure>
