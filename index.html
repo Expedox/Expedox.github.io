@@ -176,12 +176,34 @@
   /* Projektübersicht */
   .ov { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
   .ov { grid-auto-flow: dense; }
-  .ov .wide { grid-column: 1 / -1; }
-  .ov .wide .thumb { height: 230px; }
-  @media (max-width: 900px) { .ov { grid-template-columns: 1fr 1fr; } .ov .wide { grid-column: auto; } }
-  @media (max-width: 600px) { .ov { grid-template-columns: 1fr; } }
+  .ov .wide2 { grid-column: span 2; }
+  @media (max-width: 900px) { .ov { grid-template-columns: 1fr 1fr; } .ov .wide2 { grid-column: auto; } }
+  @media (max-width: 600px) { .ov, .ov.two { grid-template-columns: 1fr; } }
   .ocard { display: flex; flex-direction: column; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--card); text-decoration: none; transition: transform .2s, box-shadow .2s; }
   .ocard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .ocard h3 a { text-decoration: none; color: inherit; }
+  .ocard .thumb-link { display: block; }
+  .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .act { padding: 8px 14px; border-radius: 999px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: transform .15s; }
+  .act:hover { transform: translateY(-1px); }
+  .act.go { background: var(--text); color: var(--bg); }
+  .act.info { border: 1px solid var(--line); color: var(--muted); }
+  .ocard .meta { margin-top: 8px; }
+  .ocard .acts { margin-top: auto; padding-top: 16px; }
+  .ov.two { grid-template-columns: repeat(2, 1fr); }
+  .ov.two .thumb { height: 210px; }
+  @media (max-width: 600px) { .ov.two { grid-template-columns: 1fr; } .ov.two .thumb { height: 190px; } }
+  .ogroup { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin: 48px 0 0; }
+  .ogroup span { font-size: 1.4rem; }
+  .ogroup h3 { margin: 0; font-size: 1.4rem; letter-spacing: -.02em; }
+  .ogroup small { color: var(--muted); font-size: .95rem; }
+  .ov + .ogroup { margin-top: 44px; }
+  .ogroup + .ov { margin-top: 18px; }
+  .band { display: flex; align-items: center; gap: 16px; margin-top: 120px; padding: 18px 24px; border-radius: 20px; background: var(--bg2); border: 1px solid var(--line); }
+  .band span { font-size: 2rem; }
+  .band h2 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+  .band small { display: block; color: var(--muted); font-size: 1rem; }
+  .band + section { padding-top: 60px; }
   .ocard .thumb { height: 190px; display: grid; place-items: center; position: relative; overflow: hidden; }
   .ocard .thumb img.cover { width: 100%; height: 100%; object-fit: cover; }
   .ocard .thumb img.icon { width: 96px; height: 96px; border-radius: 24px; box-shadow: 0 14px 30px -10px rgba(0,0,0,.5); }
@@ -340,12 +362,9 @@
     <a class="logo" href="#top">Mike<span class="grad">.</span></a>
     <ul>
       <li><a href="#projekte">Projekte</a></li>
-      <li><a href="#vokabeltrainer">Vokabeltrainer</a></li>
-      <li><a href="#mathetrainer">Mathe</a></li>
-      <li class="opt"><a href="#justjpg">JustJPG</a></li>
-      <li class="opt"><a href="#dialboard">Dialboard</a></li>
-      <li class="opt"><a href="#justpdf">JustPDF</a></li>
-      <li class="opt"><a href="#lastdude">Last Dude</a></li>
+      <li><a href="#lernen">Lernen</a></li>
+      <li><a href="#werkzeuge">Werkzeuge</a></li>
+      <li class="opt"><a href="#spiele">Spiele</a></li>
     </ul>
   </div>
 </nav>
@@ -358,7 +377,7 @@
     <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und Erwachsene, den neuen Mathe Trainer, JustPDF zum Zusammenfügen von PDFs und zwei Browser-Erweiterungen für Firefox und Chrome. Und bald mein erstes Spiel auf Steam.</p>
     <div class="btns">
       <a class="btn primary" href="#projekte">Projekte ansehen ↓</a>
-      <a class="btn ghost" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen</a>
+      <a class="btn ghost" href="https://github.com/Expedox">GitHub ↗</a>
     </div>
   </div>
 </header>
@@ -378,73 +397,90 @@
     <div class="reveal">
       <p class="kicker">Projekte</p>
       <h2>Was ich gebaut habe</h2>
-      <p class="sub">Fünf Werkzeuge für den Alltag und ein Spiel, das bald kommt.</p>
+      <p class="sub">Zwei Lern-Apps, drei Werkzeuge und ein Spiel, das bald kommt.</p>
     </div>
+    <!-- Neues Projekt: einen <article class="ocard">-Block in der passenden Gruppe kopieren und anpassen. -->
+    <div class="ogroup reveal" id="lernen-uebersicht"><span>📚</span><h3>Lernen</h3><small>Apps für Schule und Weiterbildung</small></div>
+    <div class="ov two">
+        <article class="ocard reveal">
+          <a class="thumb-link" href="#vokabeltrainer" tabindex="-1" aria-hidden="true"><div class="thumb t-vt"><img class="icon" src="img/vokabeltrainer-icon.png" alt=""></div></a>
+          <div class="body">
+            <h3><a href="#vokabeltrainer">Vokabeltrainer</a></h3>
+            <p>Englisch für die 1. bis 12. Schulstufe mit Elternbereich, und neu für Erwachsene von A1 bis B2.</p>
+            <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Offline</span></div>
+            <div class="acts"><a class="act go" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen</a><a class="act info" href="#vokabeltrainer">Mehr erfahren</a></div>
+          </div>
+        </article>
+        <article class="ocard reveal">
+          <a class="thumb-link" href="#mathetrainer" tabindex="-1" aria-hidden="true"><div class="thumb t-mt"><img class="icon" src="img/mathetrainer-icon.png" alt="" loading="lazy"></div></a>
+          <div class="body">
+            <h3><a href="#mathetrainer">Mathe Trainer <span class="pill live">Neu</span></a></h3>
+            <p>Mathematik für die 1. bis 12. Schulstufe nach österreichischem Lehrplan, mit Fehlerheft, „Warum ist das so?“-Erklärungen, Elternbereich und Matura-Vorbereitung.</p>
+            <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Offline</span></div>
+            <div class="acts"><a class="act go" href="https://expedox.github.io/mathetrainer/">Mathe Trainer öffnen</a><a class="act info" href="#mathetrainer">Mehr erfahren</a></div>
+          </div>
+        </article>
+    </div>
+
+    <div class="ogroup reveal"><span>🛠️</span><h3>Werkzeuge</h3><small>Kleine Helfer für Browser und Dateien</small></div>
     <div class="ov">
-      <!-- Neues Projekt: einen <a class="ocard">-Block kopieren und anpassen. -->
-      <a class="ocard reveal" href="#vokabeltrainer">
-        <div class="thumb t-vt"><img class="icon" src="img/vokabeltrainer-icon.png" alt=""></div>
-        <div class="body">
-          <h3>Vokabeltrainer</h3>
-          <p>Englisch für die 1. bis 12. Schulstufe mit Elternbereich, und neu für Erwachsene von A1 bis B2.</p>
-          <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Handy &amp; Tablet</span></div>
+        <article class="ocard reveal">
+          <a class="thumb-link" href="#justpdf" tabindex="-1" aria-hidden="true"><div class="thumb t-pdf"><img class="icon" src="img/justpdf-icon.png" alt="" loading="lazy"></div></a>
+          <div class="body">
+            <h3><a href="#justpdf">JustPDF</a></h3>
+            <p>PDFs und Bilder zusammenfügen, sortieren und durchsuchbar machen. Alles lokal, nichts wird hochgeladen.</p>
+            <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Offline</span></div>
+            <div class="acts"><a class="act go" href="https://expedox.github.io/JustPDF/">JustPDF öffnen</a><a class="act info" href="#justpdf">Mehr erfahren</a></div>
+          </div>
+        </article>
+        <article class="ocard reveal">
+          <a class="thumb-link" href="#justjpg" tabindex="-1" aria-hidden="true"><div class="thumb"><img class="cover" src="img/justjpg-kachel.webp" alt="JustJPG" loading="lazy"></div></a>
+          <div class="body">
+            <h3><a href="#justjpg">JustJPG</a></h3>
+            <p>Jedes Bild mit einem Klick als JPG speichern, auch WEBP, AVIF und HEIC.</p>
+            <div class="meta"><span class="pill live">Im Store</span><span class="pill">Chrome</span><span class="pill">Firefox</span></div>
+            <div class="acts"><a class="act go" href="https://chromewebstore.google.com/detail/justjpg/jdlpkegjpkdjknlahookpfckmoobeiai">Für Chrome</a><a class="act go" href="https://addons.mozilla.org/de/firefox/addon/justjpg/">Für Firefox</a><a class="act info" href="#justjpg">Mehr erfahren</a></div>
+          </div>
+        </article>
+        <article class="ocard reveal">
+          <a class="thumb-link" href="#dialboard" tabindex="-1" aria-hidden="true"><div class="thumb t-db"><img class="icon" src="img/dialboard-icon.png" alt="" loading="lazy"></div></a>
+          <div class="body">
+            <h3><a href="#dialboard">Dialboard</a></h3>
+            <p>Neuer-Tab-Seite mit Speed Dials in Gruppen und voller Lesezeichen-Verwaltung.</p>
+            <div class="meta"><span class="pill live">Im Store</span><span class="pill">Firefox</span></div>
+            <div class="acts"><a class="act go" href="https://addons.mozilla.org/de/firefox/addon/dialboard-speed-dial-bookmarks/">Für Firefox</a><a class="act info" href="#dialboard">Mehr erfahren</a></div>
+          </div>
+        </article>
+    </div>
+
+    <div class="ogroup reveal"><span>🎮</span><h3>Spiele und Pläne</h3><small>Was gerade entsteht</small></div>
+    <div class="ov">
+        <article class="ocard wide2 reveal">
+          <a class="thumb-link" href="#lastdude" tabindex="-1" aria-hidden="true"><div class="thumb t-lds"><img class="a" src="img/lds-aliens.webp" alt="" loading="lazy"><img class="d" src="img/lds-dude.webp" alt="" loading="lazy"></div></a>
+          <div class="body">
+            <h3><a href="#lastdude">Last Dude Standing</a></h3>
+            <p>Mein erstes Spiel: ein ganz normaler Typ und seine Schrott-Türme gegen eine Alieninvasion.</p>
+            <div class="meta"><span class="pill coming">Coming soon</span><span class="pill">Steam</span></div>
+            <div class="acts"><a class="act info" href="#lastdude">Mehr erfahren</a></div>
+          </div>
+        </article>
+        <div class="ocard soon reveal">
+          <div class="thumb">🌍</div>
+          <div class="body">
+            <h3>Als Nächstes</h3>
+            <p>Weitere Sprachen für den Vokabeltrainer und ein Erwachsenen-Modus für den Mathe Trainer.</p>
+            <div class="meta"><span class="pill">Geplant</span></div>
+          </div>
         </div>
-      </a>
-      <a class="ocard reveal" href="#mathetrainer">
-        <div class="thumb t-mt"><img class="icon" src="img/mathetrainer-icon.png" alt="" loading="lazy"></div>
-        <div class="body">
-          <h3>Mathe Trainer <span class="pill live">Neu</span></h3>
-          <p>Mathematik für die 1. bis 12. Schulstufe nach österreichischem Lehrplan, mit Fehlerbuch, „Warum ist das so?“-Erklärungen, Elternbereich und Matura-Vorbereitung. Funktioniert offline.</p>
-          <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Offline</span></div>
-        </div>
-      </a>
-      <a class="ocard reveal" href="#justjpg">
-        <div class="thumb"><img class="cover" src="img/justjpg-kachel.webp" alt="JustJPG" loading="lazy"></div>
-        <div class="body">
-          <h3>JustJPG</h3>
-          <p>Jedes Bild mit einem Klick als JPG speichern, auch WEBP, AVIF und HEIC.</p>
-          <div class="meta"><span class="pill live">Im Store</span><span class="pill">Chrome</span><span class="pill">Firefox</span></div>
-        </div>
-      </a>
-      <a class="ocard reveal" href="#dialboard">
-        <div class="thumb t-db"><img class="icon" src="img/dialboard-icon.png" alt="" loading="lazy"></div>
-        <div class="body">
-          <h3>Dialboard</h3>
-          <p>Neuer-Tab-Seite mit Speed Dials in Gruppen und voller Lesezeichen-Verwaltung.</p>
-          <div class="meta"><span class="pill live">Im Store</span><span class="pill">Firefox</span></div>
-        </div>
-      </a>
-      <a class="ocard reveal" href="#justpdf">
-        <div class="thumb t-pdf"><img class="icon" src="img/justpdf-icon.png" alt="" loading="lazy"></div>
-        <div class="body">
-          <h3>JustPDF</h3>
-          <p>PDFs und Bilder zusammenfügen, sortieren und durchsuchbar machen. Alles lokal, nichts wird hochgeladen.</p>
-          <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Offline</span></div>
-        </div>
-      </a>
-      <a class="ocard wide reveal" href="#lastdude">
-        <div class="thumb t-lds"><img class="a" src="img/lds-aliens.webp" alt="" loading="lazy"><img class="d" src="img/lds-dude.webp" alt="" loading="lazy"></div>
-        <div class="body">
-          <h3>Last Dude Standing</h3>
-          <p>Mein erstes Spiel: ein ganz normaler Typ und seine Schrott-Türme gegen eine Alieninvasion.</p>
-          <div class="meta"><span class="pill coming">Coming soon</span><span class="pill">Steam</span></div>
-        </div>
-      </a>
-      <div class="ocard soon reveal">
-        <div class="thumb">🌍</div>
-        <div class="body">
-          <h3>Als Nächstes</h3>
-          <p>Weitere Sprachen für den Vokabeltrainer und ein Erwachsenen-Modus für den Mathe Trainer.</p>
-          <div class="meta"><span class="pill">Geplant</span></div>
-        </div>
-      </div>
     </div>
   </section>
+
+  <div class="band reveal" id="lernen"><span>📚</span><div><h2>Lernen</h2><small>Vokabeltrainer und Mathe Trainer</small></div></div>
 
   <section id="vokabeltrainer">
     <div class="feature">
       <div class="reveal">
-        <p class="kicker">Vorzeigeprojekt</p>
+        <p class="kicker">Lern-App · Englisch</p>
         <h2>Vokabeltrainer für Österreichs Schulen</h2>
         <p class="sub">Englisch von der 1. Klasse Volksschule bis zur Matura. Die Wörter folgen dem österreichischen Lehrplan und dem GERS, sortiert nach Schulstufe und Thema. Neu: ein eigener Modus für Erwachsene.</p>
         <div class="badge-row">
@@ -452,7 +488,7 @@
           <span class="badge">Ohne Konto</span><span class="badge">Offline</span>
         </div>
         <div class="btns">
-          <a class="btn dark" href="https://expedox.github.io/vokabeltrainer/">Jetzt starten</a>
+          <a class="btn dark" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen</a>
         </div>
       </div>
       <div class="phones reveal" aria-hidden="true">
@@ -520,7 +556,7 @@
   <section>
     <div class="reveal">
       <p class="kicker">Einblicke</p>
-      <h2>So sieht das aus</h2>
+      <h2>So sieht der Vokabeltrainer aus</h2>
       <p class="sub">Zum Durchwischen. Alle Bilder stammen direkt aus der App.</p>
     </div>
     <div class="gallery">
@@ -541,7 +577,7 @@
     <div class="blob b1"></div><div class="blob b2"></div>
     <div>
       <p class="kicker">Ausprobieren</p>
-      <h2>In 30 Sekunden am Handy</h2>
+      <h2>Vokabeltrainer in 30 Sekunden am Handy</h2>
       <ol class="steps">
         <li>QR-Code scannen oder den Link öffnen</li>
         <li>Im Browser „Zum Home-Bildschirm“ wählen</li>
@@ -555,7 +591,7 @@
   <section id="mathetrainer">
     <div class="feature">
       <div class="reveal">
-        <p class="kicker">Neu</p>
+        <p class="kicker">Lern-App · Mathematik · Neu</p>
         <h2>Mathe Trainer für Österreichs Schulen</h2>
         <p class="sub">Mathematik von der 1. Klasse Volksschule bis zur Matura. Die Aufgaben folgen dem österreichischen Lehrplan und werden bei jedem Üben neu erzeugt. Wer sich verrechnet, erfährt genau, warum die Antwort nicht stimmt.</p>
         <div class="badge-row">
@@ -563,7 +599,7 @@
           <span class="badge">Ohne Konto</span><span class="badge">Offline</span>
         </div>
         <div class="btns">
-          <a class="btn dark" href="https://expedox.github.io/mathetrainer/">Jetzt starten</a>
+          <a class="btn dark" href="https://expedox.github.io/mathetrainer/">Mathe Trainer öffnen</a>
         </div>
       </div>
       <div class="phones reveal" aria-hidden="true">
@@ -625,7 +661,7 @@
     <div class="blob b1"></div><div class="blob b2"></div>
     <div>
       <p class="kicker">Ausprobieren</p>
-      <h2>In 30 Sekunden am Handy</h2>
+      <h2>Mathe Trainer in 30 Sekunden am Handy</h2>
       <ol class="steps">
         <li>QR-Code scannen oder den Link öffnen</li>
         <li>Im Browser „Zum Home-Bildschirm“ wählen</li>
@@ -636,10 +672,37 @@
     <div class="qr"><img src="img/qr-mathetrainer.svg" alt="QR-Code zum Mathe Trainer">Scannen zum Öffnen</div>
   </div>
 
-  <section id="justjpg">
+  <div class="band reveal" id="werkzeuge"><span>🛠️</span><div><h2>Werkzeuge</h2><small>JustPDF, JustJPG und Dialboard</small></div></div>
+
+  <section id="justpdf">
     <div class="ext">
       <div class="reveal">
-        <p class="kicker">Browser-Erweiterung</p>
+        <p class="kicker">Werkzeug · Web-App</p>
+        <div class="head"><img src="img/justpdf-icon.png" alt=""><h2>JustPDF</h2></div>
+        <p class="sub">Scans, Rechnungen und Fotos zu einer PDF zusammenfügen und durchsuchbar machen. Direkt im Browser, ohne Upload-Seiten.</p>
+        <ul class="checks blue">
+          <li>PDF, JPG, PNG, WEBP und HEIC vom iPhone per Drag &amp; Drop</li>
+          <li>Seiten umsortieren, drehen und löschen, auch bei großen Dateien</li>
+          <li>Texterkennung (OCR) auf Deutsch und Englisch: das PDF wird durchsuchbar</li>
+          <li>Sortiert Seiten automatisch nach erkannten Seitenzahlen</li>
+          <li>Funktioniert offline und lässt sich am Handy und Computer installieren</li>
+          <li>Alles bleibt auf dem Gerät: kein Upload, kein Konto, kein Tracking</li>
+        </ul>
+        <div class="btns">
+          <a class="btn pdf" href="https://expedox.github.io/JustPDF/">JustPDF öffnen</a>
+        </div>
+      </div>
+      <div class="pdfmock reveal" aria-hidden="true">
+        <div class="bar"><span class="on">12 Seiten</span><span>OCR: Deutsch</span></div>
+        <div class="pages"><i data-n="1"></i><i data-n="2"></i><i data-n="3"></i><i data-n="4"></i><i data-n="5"></i><i data-n="6"></i><i data-n="7"></i><i data-n="8"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="justjpg">
+    <div class="ext flip">
+      <div class="reveal">
+        <p class="kicker">Werkzeug · Browser-Erweiterung</p>
         <div class="head"><img src="img/justjpg-icon.png" alt=""><h2>JustJPG</h2></div>
         <p class="sub">Jedes Bild. Ein Klick. JPG. Auch Bilder, die sich normal nicht speichern lassen oder nur als WEBP, AVIF oder HEIC kommen.</p>
         <ul class="checks">
@@ -659,9 +722,9 @@
   </section>
 
   <section id="dialboard">
-    <div class="ext flip">
+    <div class="ext">
       <div class="reveal">
-        <p class="kicker">Firefox-Add-on</p>
+        <p class="kicker">Werkzeug · Firefox-Add-on</p>
         <div class="head"><img src="img/dialboard-icon.png" alt=""><h2>Dialboard</h2></div>
         <p class="sub">Deine Neuer-Tab-Seite mit Speed Dials, gruppiert in Tabs, dazu eine vollwertige Lesezeichen-Verwaltung.</p>
         <ul class="checks teal">
@@ -683,30 +746,7 @@
     </div>
   </section>
 
-  <section id="justpdf">
-    <div class="ext">
-      <div class="reveal">
-        <p class="kicker">Web-App</p>
-        <div class="head"><img src="img/justpdf-icon.png" alt=""><h2>JustPDF</h2></div>
-        <p class="sub">Scans, Rechnungen und Fotos zu einer PDF zusammenfügen und durchsuchbar machen. Direkt im Browser, ohne Upload-Seiten.</p>
-        <ul class="checks blue">
-          <li>PDF, JPG, PNG, WEBP und HEIC vom iPhone per Drag &amp; Drop</li>
-          <li>Seiten umsortieren, drehen und löschen, auch bei großen Dateien</li>
-          <li>Texterkennung (OCR) auf Deutsch und Englisch: das PDF wird durchsuchbar</li>
-          <li>Sortiert Seiten automatisch nach erkannten Seitenzahlen</li>
-          <li>Funktioniert offline und lässt sich am Handy und Computer installieren</li>
-          <li>Alles bleibt auf dem Gerät: kein Upload, kein Konto, kein Tracking</li>
-        </ul>
-        <div class="btns">
-          <a class="btn pdf" href="https://expedox.github.io/JustPDF/">JustPDF öffnen</a>
-        </div>
-      </div>
-      <div class="pdfmock reveal" aria-hidden="true">
-        <div class="bar"><span class="on">12 Seiten</span><span>OCR: Deutsch</span></div>
-        <div class="pages"><i data-n="1"></i><i data-n="2"></i><i data-n="3"></i><i data-n="4"></i><i data-n="5"></i><i data-n="6"></i><i data-n="7"></i><i data-n="8"></i></div>
-      </div>
-    </div>
-  </section>
+  <div class="band reveal" id="spiele"><span>🎮</span><div><h2>Spiele</h2><small>Last Dude Standing</small></div></div>
 
   <div class="lds reveal" id="lastdude">
     <span class="soon">Coming soon auf Steam</span>
