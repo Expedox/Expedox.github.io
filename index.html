@@ -175,7 +175,9 @@
 
   /* Projektübersicht */
   .ov { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
-  .ov .wide { grid-column: span 2; }
+  .ov { grid-auto-flow: dense; }
+  .ov .wide { grid-column: 1 / -1; }
+  .ov .wide .thumb { height: 230px; }
   @media (max-width: 900px) { .ov { grid-template-columns: 1fr 1fr; } .ov .wide { grid-column: auto; } }
   @media (max-width: 600px) { .ov { grid-template-columns: 1fr; } }
   .ocard { display: flex; flex-direction: column; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--card); text-decoration: none; transition: transform .2s, box-shadow .2s; }
@@ -353,7 +355,7 @@
   <div class="wrap">
     <span class="eyebrow">👋 Hallo, ich bin Mike</span>
     <h1>Ich baue Apps, die <span class="grad">wirklich helfen.</span></h1>
-    <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und Erwachsene, den neuen Mathe Trainer, JustPDF zum Zusammenfügen von PDFs, zwei Browser-Erweiterungen für Firefox und Chrome. Und bald mein erstes Spiel auf Steam.</p>
+    <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und Erwachsene, den neuen Mathe Trainer, JustPDF zum Zusammenfügen von PDFs und zwei Browser-Erweiterungen für Firefox und Chrome. Und bald mein erstes Spiel auf Steam.</p>
     <div class="btns">
       <a class="btn primary" href="#projekte">Projekte ansehen ↓</a>
       <a class="btn ghost" href="https://expedox.github.io/vokabeltrainer/">Vokabeltrainer öffnen</a>
