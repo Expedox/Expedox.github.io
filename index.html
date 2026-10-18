@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mike · Projekte</title>
-<meta name="description" content="Mikes Projekte, zum Beispiel der Vokabeltrainer: Englisch für die 1. bis 12. Schulstufe, offline und ohne Konto.">
+<meta name="description" content="Mikes Projekte: Vokabeltrainer, Mathe Trainer, Hangeul Start, Brewhelper und weitere Apps. Offline, ohne Konto, ohne Tracking.">
 <meta property="og:title" content="Mike · Projekte">
-<meta property="og:description" content="Vokabeltrainer, Mathe Trainer und weitere Projekte von Mike.">
+<meta property="og:description" content="Vokabeltrainer, Mathe Trainer, Brewhelper und weitere Projekte von Mike.">
 <meta property="og:image" content="https://expedox.github.io/img/home.webp">
 <meta name="theme-color" content="#17130f">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
@@ -356,6 +356,86 @@
   .next .plan.new { background: rgba(76, 196, 136, .18); color: var(--green); }
   @media (max-width: 520px) { .next { padding: 26px 20px; } .next .shots { margin: 24px -20px 0; padding: 6px 20px 10px; } }
 
+  /* Brewhelper */
+  .t-bh { background: radial-gradient(circle at 75% 15%, #f2b45a, #b8721f 45%, #4a2a08); }
+  .t-bh .peek { position: absolute; right: 8%; top: 26px; width: 150px; border-radius: 18px; border: 6px solid #111; box-shadow: 0 20px 40px -12px rgba(0,0,0,.6); transform: rotate(6deg); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+  .t-bh .icon { position: absolute; left: 12%; }
+  .ocard:hover .t-bh .peek { transform: rotate(3deg) translateY(-8px); }
+  .ov.one { grid-template-columns: 1fr; }
+  .ocard.hz { display: grid; grid-template-columns: 1.1fr 1fr; }
+  .ocard.hz .thumb { height: 100%; min-height: 280px; }
+  .ocard.hz .body { padding: 30px 32px; }
+  .ocard.hz h3 { font-size: 1.6rem; }
+  @media (max-width: 760px) {
+    .ocard.hz { grid-template-columns: 1fr; }
+    .ocard.hz .thumb { min-height: 230px; }
+    .t-bh .peek { width: 120px; right: 10%; }
+    .ocard.hz .body { padding: 22px 24px 24px; }
+  }
+  .brew {
+    border-radius: 32px; padding: 56px 50px; position: relative; overflow: hidden; isolation: isolate; color: #fff4e3;
+    background: radial-gradient(circle at 85% 0%, rgba(255, 196, 102, .55), transparent 55%), radial-gradient(ellipse at 10% 110%, rgba(214, 120, 30, .45), transparent 60%), linear-gradient(160deg, #6b3d0c, #2a1705 70%);
+  }
+  .brew-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 900px) { .brew-grid { grid-template-columns: 1fr; gap: 10px; } }
+  .brew-tag { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(255, 213, 140, .14); border: 1px solid rgba(255, 213, 140, .4); color: #ffd58c; font-weight: 800; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+  .brew .head { display: flex; align-items: center; gap: 16px; margin: 20px 0 14px; }
+  .brew .head img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 10px 24px -8px rgba(0,0,0,.6); }
+  .brew h2 { margin: 0; color: #fff8ec; }
+  .brew .pitch { color: #f0d9b8; font-size: 1.15rem; max-width: 46ch; margin: 0; }
+  .checks.honey { color: #fbead2; }
+  .checks.honey li::before { color: #ffc35c; }
+  .brew .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
+  .brew .chips span { padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-size: .85rem; font-weight: 600; color: #f6e2c4; }
+  .btn.honey { background: linear-gradient(100deg, #ffd27a, #f2a33a); color: #2a1705; box-shadow: 0 10px 30px -10px #f2a33a; }
+  .brew .phones { height: 540px; overflow: visible; }
+  .bubbles { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .bubbles i { position: absolute; bottom: -30px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255, 220, 160, .35); background: rgba(255, 220, 160, .08); animation: rise 9s linear infinite; }
+  .bubbles i:nth-child(1) { left: 6%; animation-delay: 0s; }
+  .bubbles i:nth-child(2) { left: 14%; width: 8px; height: 8px; animation-delay: -2s; animation-duration: 7s; }
+  .bubbles i:nth-child(3) { left: 27%; width: 20px; height: 20px; animation-delay: -5s; animation-duration: 11s; }
+  .bubbles i:nth-child(4) { left: 39%; width: 10px; height: 10px; animation-delay: -1s; }
+  .bubbles i:nth-child(5) { left: 52%; animation-delay: -7s; animation-duration: 8s; }
+  .bubbles i:nth-child(6) { left: 61%; width: 6px; height: 6px; animation-delay: -3s; animation-duration: 6s; }
+  .bubbles i:nth-child(7) { left: 72%; width: 18px; height: 18px; animation-delay: -6s; animation-duration: 12s; }
+  .bubbles i:nth-child(8) { left: 81%; width: 9px; height: 9px; animation-delay: -4s; }
+  .bubbles i:nth-child(9) { left: 90%; animation-delay: -8s; animation-duration: 10s; }
+  .bubbles i:nth-child(10) { left: 96%; width: 7px; height: 7px; animation-delay: -2.5s; animation-duration: 7.5s; }
+  @keyframes rise { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 50% { transform: translate(10px, -50vh); } 100% { transform: translate(-6px, -100vh); opacity: 0; } }
+  .note { margin: 22px 0 0; padding: 14px 18px; border-radius: 16px; background: var(--bg2); border: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+  @media (max-width: 760px) {
+    .brew { padding: 38px 22px 0; }
+    .brew .phones { height: 440px; }
+  }
+
+  /* Startseite: Hero-Extras, Filter, Anker */
+  [id] { scroll-margin-top: 80px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5;
+    background-image: radial-gradient(rgba(255,255,255,.09) 1px, transparent 1px); background-size: 26px 26px;
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%); mask-image: linear-gradient(180deg, #000, transparent 85%);
+  }
+  .eyebrows { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+  .eyebrows .eyebrow { margin: 0; }
+  .eyebrow.new { text-decoration: none; color: #ffe3b8; border-color: rgba(255, 196, 102, .45); background: rgba(255, 179, 92, .1); transition: background .2s; }
+  .eyebrow.new:hover { background: rgba(255, 179, 92, .2); }
+  .eyebrow.new b { display: inline-block; margin-right: 6px; padding: 0 8px; border-radius: 999px; background: var(--accent2); color: #241405; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
+  .dock { margin-top: 56px; }
+  .dock p { margin: 0 0 12px; color: var(--hero-muted); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+  .dock-row { display: inline-grid; grid-template-columns: repeat(6, 78px); gap: 6px; padding: 12px; border-radius: 26px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .dock-row a { display: grid; justify-items: center; gap: 6px; padding: 8px 4px; border-radius: 16px; text-decoration: none; color: var(--hero-muted); font-size: .78rem; font-weight: 600; transition: transform .2s, background .2s, color .2s; }
+  .dock-row a:hover { transform: translateY(-4px); background: rgba(255,255,255,.08); color: var(--hero-text); }
+  .dock-row img { width: 52px; height: 52px; border-radius: 14px; box-shadow: 0 8px 20px -8px rgba(0,0,0,.6); }
+  @media (max-width: 560px) { .dock-row { grid-template-columns: repeat(3, 1fr); width: 100%; } }
+  .filter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+  .filter[hidden] { display: none; }
+  .filter button { font: inherit; font-size: .95rem; font-weight: 700; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .filter button:hover { border-color: var(--accent2); color: var(--text); }
+  .filter button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .off { display: none !important; }
+  .filter + .ogroup { margin-top: 28px; }
+
   footer { margin-top: 110px; padding: 40px 0 50px; border-top: 1px solid var(--line); color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
@@ -364,7 +444,8 @@
   .js .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .js .reveal { opacity: 1; transform: none; transition: none; }
-    .blob { animation: none; }
+    .blob, .bubbles i { animation: none; }
+    .bubbles { display: none; }
     html { scroll-behavior: auto; }
   }
 </style>
@@ -379,6 +460,7 @@
       <li><a href="#projekte">Projekte</a></li>
       <li><a href="#lernen">Lernen</a></li>
       <li><a href="#werkzeuge">Werkzeuge</a></li>
+      <li class="opt"><a href="#hobby">Hobby</a></li>
       <li class="opt"><a href="#spiele">Spiele</a></li>
     </ul>
   </div>
@@ -387,19 +469,33 @@
 <header class="hero" id="top">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="wrap">
-    <span class="eyebrow">👋 Hallo, ich bin Mike</span>
+    <div class="eyebrows">
+      <span class="eyebrow">👋 Hallo, ich bin Mike</span>
+      <a class="eyebrow new" href="#brewhelper"><b>Neu</b> Brewhelper für Cider und Met →</a>
+    </div>
     <h1>Ich baue Apps, die <span class="grad">wirklich helfen.</span></h1>
-    <p class="lead">Hier zeige ich meine Projekte: einen Vokabeltrainer für Schulkinder und Erwachsene, den Mathe Trainer, Hangeul Start zum Koreanischlernen, JustPDF zum Zusammenfügen von PDFs, Eurodex für Euro-Münzsammler und zwei Browser-Erweiterungen für Firefox und Chrome. Und bald mein erstes Spiel auf Steam.</p>
+    <p class="lead">Lern-Apps für Schule und Weiterbildung, kleine Werkzeuge für Browser und Dateien, ein Begleiter fürs Hobby-Brauen und bald mein erstes Spiel auf Steam. Alles läuft ohne Konto und ohne Tracking.</p>
     <div class="btns">
       <a class="btn primary" href="#projekte">Projekte ansehen ↓</a>
       <a class="btn ghost" href="https://github.com/Expedox">GitHub ↗</a>
+    </div>
+    <div class="dock">
+      <p>Direkt starten</p>
+      <div class="dock-row">
+        <a href="https://expedox.github.io/vokabeltrainer/"><img src="img/vokabeltrainer-icon.png" alt=""><span>Vokabeln</span></a>
+        <a href="https://expedox.github.io/mathetrainer/"><img src="img/mathetrainer-icon.png" alt=""><span>Mathe</span></a>
+        <a href="https://expedox.github.io/Hangeul_Start/"><img src="img/hangeul-start-icon.svg" alt=""><span>Hangeul</span></a>
+        <a href="https://expedox.github.io/eurodex/"><img src="img/eurodex-icon.png" alt=""><span>Eurodex</span></a>
+        <a href="https://expedox.github.io/JustPDF/"><img src="img/justpdf-icon.png" alt=""><span>JustPDF</span></a>
+        <a href="https://expedox.github.io/brewhelper/"><img src="img/brewhelper-icon.png" alt=""><span>Brewhelper</span></a>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="stats wrap reveal">
   <div class="grid">
-    <div class="stat"><b data-count="7">7</b><span>Projekte online</span></div>
+    <div class="stat"><b data-count="8">8</b><span>Projekte online</span></div>
     <div class="stat"><b data-count="1">1</b><span>Spiel unterwegs</span></div>
     <div class="stat"><b data-count="4">4</b><span>Plattformen</span></div>
     <div class="stat"><b>0</b><span>Tracking in den Apps</span></div>
@@ -412,11 +508,18 @@
     <div class="reveal">
       <p class="kicker">Projekte</p>
       <h2>Was ich gebaut habe</h2>
-      <p class="sub">Drei Lern-Apps, vier Werkzeuge und ein Spiel, das bald kommt.</p>
+      <p class="sub">Drei Lern-Apps, vier Werkzeuge, ein Helfer fürs Hobby und ein Spiel, das bald kommt.</p>
+    </div>
+    <div class="filter reveal" role="toolbar" aria-label="Projekte filtern" hidden>
+      <button type="button" data-f="alle" aria-pressed="true">Alle</button>
+      <button type="button" data-f="lernen" aria-pressed="false">📚 Lernen</button>
+      <button type="button" data-f="werkzeuge" aria-pressed="false">🛠️ Werkzeuge</button>
+      <button type="button" data-f="hobby" aria-pressed="false">🍯 Hobby</button>
+      <button type="button" data-f="spiele" aria-pressed="false">🎮 Spiele</button>
     </div>
     <!-- Neues Projekt: einen <article class="ocard">-Block in der passenden Gruppe kopieren und anpassen. -->
-    <div class="ogroup reveal" id="lernen-uebersicht"><span>📚</span><h3>Lernen</h3><small>Apps für Schule und Weiterbildung</small></div>
-    <div class="ov">
+    <div class="ogroup reveal" id="lernen-uebersicht" data-g="lernen"><span>📚</span><h3>Lernen</h3><small>Apps für Schule und Weiterbildung</small></div>
+    <div class="ov" data-g="lernen">
         <article class="ocard reveal">
           <a class="thumb-link" href="#vokabeltrainer" tabindex="-1" aria-hidden="true"><div class="thumb t-vt"><img class="icon" src="img/vokabeltrainer-icon.png" alt=""></div></a>
           <div class="body">
@@ -446,8 +549,8 @@
         </article>
     </div>
 
-    <div class="ogroup reveal"><span>🛠️</span><h3>Werkzeuge</h3><small>Kleine Helfer für Browser, Dateien und Hobby</small></div>
-    <div class="ov">
+    <div class="ogroup reveal" data-g="werkzeuge"><span>🛠️</span><h3>Werkzeuge</h3><small>Kleine Helfer für Browser, Dateien und Hobby</small></div>
+    <div class="ov" data-g="werkzeuge">
         <article class="ocard reveal">
           <a class="thumb-link" href="#eurodex" tabindex="-1" aria-hidden="true"><div class="thumb t-ed"><img class="icon" src="img/eurodex-icon.png" alt="" loading="lazy"></div></a>
           <div class="body">
@@ -486,8 +589,21 @@
         </article>
     </div>
 
-    <div class="ogroup reveal"><span>🎮</span><h3>Spiele und Pläne</h3><small>Was gerade entsteht</small></div>
-    <div class="ov">
+    <div class="ogroup reveal" data-g="hobby"><span>🍯</span><h3>Hobby</h3><small>Für Cider, Met und Obstwein</small></div>
+    <div class="ov one" data-g="hobby">
+        <article class="ocard hz reveal">
+          <a class="thumb-link" href="#brewhelper" tabindex="-1" aria-hidden="true"><div class="thumb t-bh"><img class="icon" src="img/brewhelper-icon.png" alt="" loading="lazy"><img class="peek" src="img/bh-ergebnis.webp" alt="" loading="lazy"></div></a>
+          <div class="body">
+            <h3><a href="#brewhelper">Brewhelper <span class="pill live">Neu</span></a></h3>
+            <p>Rechner und Begleiter fürs Selbermachen: Du sagst, wie viele Flaschen du willst, Brewhelper rechnet Zutaten, Alkohol, Gärdauer und Zeitplan. Mit Gärtagebuch, Nährstoffplan und Hilfe, wenn etwas schiefgeht.</p>
+            <div class="meta"><span class="pill live">Online</span><span class="pill">Web-App</span><span class="pill">Offline</span></div>
+            <div class="acts"><a class="act go" href="https://expedox.github.io/brewhelper/">Brewhelper öffnen</a><a class="act info" href="#brewhelper">Mehr erfahren</a></div>
+          </div>
+        </article>
+    </div>
+
+    <div class="ogroup reveal" data-g="spiele"><span>🎮</span><h3>Spiele und Pläne</h3><small>Was gerade entsteht</small></div>
+    <div class="ov" data-g="spiele">
         <article class="ocard wide2 reveal">
           <a class="thumb-link" href="#lastdude" tabindex="-1" aria-hidden="true"><div class="thumb t-lds"><img class="a" src="img/lds-aliens.webp" alt="" loading="lazy"><img class="d" src="img/lds-dude.webp" alt="" loading="lazy"></div></a>
           <div class="body">
@@ -852,6 +968,65 @@
     </div>
   </section>
 
+  <div class="band reveal" id="hobby"><span>🍯</span><div><h2>Hobby</h2><small>Brewhelper</small></div></div>
+
+  <section id="brewhelper">
+    <div class="brew reveal">
+      <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="brew-grid">
+        <div>
+          <span class="brew-tag">Neu · Web-App</span>
+          <div class="head"><img src="img/brewhelper-icon.png" alt=""><h2>Brewhelper</h2></div>
+          <p class="pitch">Rechner und Begleiter für Cider, Met und Obstwein. Sag, was am Ende in der Flasche sein soll, und Brewhelper rechnet den Weg dorthin.</p>
+          <ul class="checks honey">
+            <li>Vom Ziel her rechnen: Fertigmenge, Flaschengröße oder Gärgefäß vorgeben</li>
+            <li>Alkohol, Restsüße und Gärdauer mit Ampel und Warnungen</li>
+            <li>Gärtagebuch mit Spindel- und Refraktometer-Korrektur</li>
+            <li>Erinnerungen als Kalenderdatei fürs Handy</li>
+            <li>Offline, ohne Konto, alle Daten bleiben im Browser</li>
+          </ul>
+          <div class="chips"><span>5 Startrezepte</span><span>6 Hefe-Profile</span><span>Leitfaden in 10 Schritten</span><span>Fehlerdiagnose</span></div>
+          <div class="btns">
+            <a class="btn honey" href="https://expedox.github.io/brewhelper/">Brewhelper öffnen</a>
+          </div>
+        </div>
+        <div class="phones" aria-hidden="true">
+          <div class="phone p2"><img src="img/bh-rezepte.webp" alt="" loading="lazy"></div>
+          <div class="phone p3"><img src="img/bh-diagnose.webp" alt="" loading="lazy"></div>
+          <div class="phone p1"><img src="img/bh-ergebnis.webp" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="fcard reveal"><div class="ico">🧮</div><h3>Vom Ziel her rechnen</h3><p>Du sagst, wie viel du am Ende willst. Brewhelper rechnet Saft, Honig, Zucker und Hefe und sagt, wie groß das Gärgefäß mit Kopfraum sein muss.</p></div>
+      <div class="fcard reveal"><div class="ico">🚦</div><h3>Ampel statt Rätselraten</h3><p>Ausgangsdichte, Alkohol, Enddichte und Gärdauer auf einen Blick. Dazu eine Ampel, ob die Hefe das schafft, und Warnungen vor Gärstopp und Überdruck.</p></div>
+      <div class="fcard reveal"><div class="ico">📓</div><h3>Gärtagebuch</h3><p>Ansätze mit Messungen und Gärstatus festhalten. Die Spindel wird auf die Temperatur korrigiert, Termine landen auf Wunsch im Handy-Kalender.</p></div>
+      <div class="fcard reveal"><div class="ico">🧪</div><h3>Nährstoffplan</h3><p>Für Met: wie viel Nährsalz wann dazukommt, abgestimmt auf Hefe, Menge und Dichte.</p></div>
+      <div class="fcard reveal"><div class="ico">🩺</div><h3>Was ist schiefgelaufen?</h3><p>Gärung startet nicht, riecht nach faulen Eiern oder bleibt trüb? Ein paar Fragen führen zur Ursache und zu dem, was jetzt hilft.</p></div>
+      <div class="fcard reveal"><div class="ico">💶</div><h3>Kosten und Einkauf</h3><p>Preis pro Flasche im Vergleich zum Kaufen, dazu eine Einkaufsliste mit allem, was für den Ansatz fehlt.</p></div>
+    </div>
+    <p class="note reveal">Brewhelper liefert Schätzungen, keine Garantie. Werte aus der Datenbank sind als Richtwert markiert, bis sie gegen Herstellerangaben geprüft sind. Nur für den Eigenbedarf.</p>
+  </section>
+
+  <section>
+    <div class="reveal">
+      <p class="kicker">Einblicke</p>
+      <h2>So sieht Brewhelper aus</h2>
+      <p class="sub">Zum Durchwischen. Alle Bilder stammen direkt aus der App.</p>
+    </div>
+    <div class="gallery">
+      <figure class="shot"><div class="phone"><img src="img/bh-ergebnis.webp" alt="Ergebnis mit Flaschenzahl, Alkohol und Ampel" loading="lazy" width="390" height="844"></div><figcaption>Ergebnis<small>Flaschen, Alkohol, Ampel</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-rechner.webp" alt="Rechner mit Fertigmenge und Flaschengröße" loading="lazy" width="390" height="844"></div><figcaption>Rechner<small>Vom Ziel her</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-rezepte.webp" alt="Rezeptliste mit Filtern" loading="lazy" width="390" height="844"></div><figcaption>Rezepte<small>Cider, Met, Wein</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-rezept.webp" alt="Rezept für klassischen Met" loading="lazy" width="390" height="844"></div><figcaption>Rezept<small>Auf dein Gefäß gerechnet</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-naehrstoff.webp" alt="Nährstoffplan" loading="lazy" width="390" height="844"></div><figcaption>Nährstoffe<small>Plan für Met</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-diagnose.webp" alt="Fehlerdiagnose" loading="lazy" width="390" height="844"></div><figcaption>Diagnose<small>Was ist schiefgelaufen?</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-leitfaden.webp" alt="Anfängerleitfaden" loading="lazy" width="390" height="844"></div><figcaption>Leitfaden<small>Schritt für Schritt</small></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/bh-hefen.webp" alt="Hefe-Profile" loading="lazy" width="390" height="844"></div><figcaption>Hefen<small>Profile zum Vergleichen</small></figcaption></figure>
+    </div>
+  </section>
+
   <div class="band reveal" id="spiele"><span>🎮</span><div><h2>Spiele</h2><small>Last Dude Standing</small></div></div>
 
   <div class="lds reveal" id="lastdude">
@@ -904,6 +1079,20 @@
     els.forEach(el => io.observe(el));
   } else {
     els.forEach(el => el.classList.add('in'));
+  }
+  const filter = document.querySelector('.filter');
+  if (filter) {
+    filter.hidden = false;
+    filter.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      const f = b.dataset.f;
+      filter.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      document.querySelectorAll('#projekte [data-g]').forEach(el => {
+        el.classList.toggle('off', f !== 'alle' && el.dataset.g !== f);
+        if (!el.classList.contains('off')) el.querySelectorAll('.reveal').forEach(r => r.classList.add('in'));
+        if (!el.classList.contains('off') && el.classList.contains('reveal')) el.classList.add('in');
+      });
+    });
   }
 </script>
 </body>
